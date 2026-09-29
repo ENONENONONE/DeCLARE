@@ -1,0 +1,3 @@
+## Declare — managed component dependencies
+dependencies:
+  trombik/esp_wireguard: "^0.9.0"

@@ -1,0 +1,17 @@
+dependencies:
+  idf:
+    source:
+      type: idf
+    version: 5.3.5
+  trombik/esp_wireguard:
+    component_hash: 06b514516c241f27493b7589d3d4a79f424713609891168e4e65f529f1980922
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.9.0
+direct_dependencies:
+- trombik/esp_wireguard
+manifest_hash: f946f8958b27ac741b9701f2e0449f3c1e059d3fc47348ce13e0e348d2c17497
+target: esp32s3
+version: 2.0.0

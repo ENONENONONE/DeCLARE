@@ -1,0 +1,84 @@
+menu "Declare CSI Configuration"
+
+    config CSI_NODE_ID
+        int "Node ID (0-255)"
+        default 1
+        range 0 255
+        help
+            Unique identifier for this ESP32 CSI node.
+
+    config CSI_TARGET_IP
+        string "Aggregator IP address"
+        default "192.168.1.100"
+        help
+            IP address of the UDP aggregator host.
+
+    config CSI_TARGET_PORT
+        int "Aggregator UDP port"
+        default 5005
+        range 1024 65535
+        help
+            UDP port the aggregator listens on.
+
+    config CSI_WIFI_SSID
+        string "WiFi SSID"
+        default ""
+        help
+            SSID of the WiFi network. Set via env var WIFI_SSID at build time.
+
+    config CSI_WIFI_PASSWORD
+        string "WiFi Password"
+        default ""
+        help
+            WiFi password. Set via env var WIFI_PASSWORD at build time.
+
+    config CSI_WIFI_CHANNEL
+        int "WiFi Channel (1-13)"
+        default 6
+        range 1 13
+        help
+            WiFi channel to listen on for CSI data.
+
+endmenu
+
+menu "Edge Intelligence"
+
+    config EDGE_TIER
+        int "Edge processing tier (0=raw, 1=basic, 2=full)"
+        default 2
+        range 0 2
+        help
+            0 = Raw passthrough (no on-device DSP).
+            1 = Basic presence/motion detection.
+            2 = Full pipeline (vitals, compression, multi-person).
+
+    config EDGE_VITAL_INTERVAL_MS
+        int "Vitals packet send interval (ms)"
+        default 1000
+        range 100 10000
+        help
+            How often to send vitals packets over UDP.
+
+    config EDGE_TOP_K
+        int "Top-K subcarriers to track"
+        default 8
+        range 1 32
+        help
+            Number of highest-variance subcarriers to use for DSP.
+
+    config EDGE_FALL_THRESH
+        int "Fall detection threshold (x1000)"
+        default 15000
+        range 100 50000
+        help
+            Phase acceleration threshold for fall detection.
+            Value is divided by 1000 to get rad/s^2.
+
+    config EDGE_POWER_DUTY
+        int "Power duty cycle percentage"
+        default 100
+        range 10 100
+        help
+            Active duty cycle. 100 = always on.
+
+endmenu
