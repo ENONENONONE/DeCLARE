@@ -2,7 +2,7 @@
 
 Derivable Existence: identity from WiFi Channel State Information.
 
-An ESP32-C6 captures per-subcarrier I/Q from ambient WiFi, computes vitals on-device and streams them over UDP. `declare.html` turns a live capture into a declaration hash and writes the declared observer back to the device.
+An ESP32-C6 (https://a.co/d/06co8dVt) captures per-subcarrier I/Q from ambient WiFi, computes vitals on-device and streams them over UDP. `declare.html` turns a live capture into a declaration hash and writes the declared observer back to the device.
 
 No cameras. No wearables. No accounts.
 
